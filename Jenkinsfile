@@ -14,9 +14,9 @@ pipeline {
                 sh ('terraform init') 
             }
         }
-         stage ("terraform plan") {
+         stage ("terraform validate") {
             steps {
-                sh ('packer validate') 
+                sh ('terraform validate') 
             }
         }
          stage ("terraform plan") {
