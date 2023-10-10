@@ -9,27 +9,27 @@ pipeline {
           }
         }
         
-        stage ("packer init .") {
+        stage ("terraform init ") {
             steps {
-                sh ('packer init .') 
+                sh ('terraform init') 
             }
         }
-         stage ("packer validate .") {
+         stage ("terraform plan") {
             steps {
                 sh ('packer validate') 
             }
         }
-         stage ("packer build") {
+         stage ("terraform plan") {
             steps {
-                sh ('packer build .') 
+                sh ('terraform plan') 
             }
         }
         
-        /*stage ("terraform Action") {
+        stage ("terraform Action") {
             steps {
                 echo "Terraform action is --> ${action}"
                 sh ('terraform ${action} --auto-approve') 
            }
-        }*/
+        }
     }
 }
